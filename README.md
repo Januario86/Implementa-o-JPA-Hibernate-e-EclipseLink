@@ -1,4 +1,4 @@
-## Trabalhando com Banco de Dados utilizando JDBC e JPA (Gradle)
+## Trabalhando com Banco de Dados utilizando JDBC e JPA- Gradle build
 
 > Requisitos Básicos
 
