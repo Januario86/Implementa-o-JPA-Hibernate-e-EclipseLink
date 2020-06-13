@@ -29,7 +29,7 @@ public class QueriesExecution {
 
         }*/
 
-        try {
+       /* try {
 
             String ResultadoCreate= null;
             listaDeAlunos = alunoDAO.list();
@@ -55,8 +55,31 @@ public class QueriesExecution {
             System.out.println("Erro ao consultar Aluno por ID");
             e.printStackTrace();
 
-        }
+        }*/
 
+       try{
+
+           listaDeAlunos = alunoDAO.list();
+
+           System.out.print("Antes de atualizar aluno ");
+           listaDeAlunos.stream().forEach(System.out::println);
+
+           Aluno alunoParaAlteracao = new Aluno(
+                   6,
+                   "Felipe",
+                   33,
+                   "RJ"
+
+           );
+           alunoDAO.update(alunoParaAlteracao);
+           listaDeAlunos = alunoDAO.list();
+
+           System.out.print("Depois de atualizar aluno ");
+           listaDeAlunos.stream().forEach(System.out::println);
+
+       }catch (Exception e){
+
+       }
     }
 }
 
