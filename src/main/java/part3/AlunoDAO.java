@@ -68,5 +68,70 @@ public class AlunoDAO {
         return aluno;
 
     }
+    public void create(Aluno aluno) {
+        try (Connection conn = ConnectionFactory.getConnection()) {
 
+            //Preparar SQL para inserção de dados do aluno.
+            String sql = "INSERT INTO aluno(nome, idade, estado) VALUES(?, ?, ?)";
+
+            //Preparar statement com os parâmetros recebidos
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1 , aluno.getNome());
+            stmt.setInt(2, aluno.getIdade());
+            stmt.setString(3 , aluno.getEstado());
+
+            //Executa inserção e armazena o numero de linhas afetadas
+            int rowsAffected = stmt.executeUpdate();
+
+            System.out.println("Inserção BEM SUCEDIDA!. Foi adicionada " + rowsAffected + " linha");
+        } catch (SQLException e) {
+            System.out.println("Inserção FALHOU!");
+            e.printStackTrace();
+        }
+    }
+
+    // 3 - Delete
+    public void delete(int id) {
+        try (Connection conn = ConnectionFactory.getConnection()) {
+
+            //Preparar SQL para deletar uma linha.
+            String sql = "DELETE FROM aluno WHERE id = ?";
+
+            //Preparar statement com os parâmetros recebidos
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setInt(1 , id);
+
+            //Executa delete e armazena o numero de linhas afetadas
+            int rowsAffected = stmt.executeUpdate();
+
+            System.out.println("Delete BEM SUCEDIDA! Foi deletada " + rowsAffected + " linha");
+        } catch (SQLException e) {
+            System.out.println("Delete FALHOU!");
+            e.printStackTrace();
+        }
+    }
+
+    // 4 - Atualizar
+    public void update(Aluno aluno) {
+        try (Connection conn = ConnectionFactory.getConnection()) {
+
+            //Preparar SQL para atualizar linhas.
+            String sql = "UPDATE aluno SET nome = ?, idade = ?, estado = ? WHERE id = ?";
+
+            //Preparar statement com os parâmetros recebidos
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, aluno.getNome());
+            stmt.setInt(2, aluno.getIdade());
+            stmt.setString(3, aluno.getEstado());
+            stmt.setInt(4, aluno.getId());
+
+            //Executa atualização e armazena o numero de linhas afetadas
+            int rowsAffected = stmt.executeUpdate();
+
+            System.out.println("Atualização BEM SUCEDIDA! Foi atualizada: " + rowsAffected + " linha");
+        } catch (SQLException e) {
+            System.out.println("Atualização FALHOU!");
+            e.printStackTrace();
+        }
+    }
 }
