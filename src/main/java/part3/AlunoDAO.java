@@ -68,7 +68,8 @@ public class AlunoDAO {
         return aluno;
 
     }
-    public void create(Aluno aluno) {
+    public String create(Aluno aluno) {
+        String resultado = null;
         try (Connection conn = ConnectionFactory.getConnection()) {
 
             //Preparar SQL para inserção de dados do aluno.
@@ -83,10 +84,10 @@ public class AlunoDAO {
             //Executa inserção e armazena o numero de linhas afetadas
             int rowsAffected = stmt.executeUpdate();
 
-            System.out.println("Inserção BEM SUCEDIDA!. Foi adicionada " + rowsAffected + " linha");
+           return resultado = "Inserção BEM SUCEDIDA!. Foi adicionada " + rowsAffected + " linha";
         } catch (SQLException e) {
-            System.out.println("Inserção FALHOU!");
-            e.printStackTrace();
+                 e.printStackTrace();
+            return  resultado ="Inserção FALHOU!";
         }
     }
 
