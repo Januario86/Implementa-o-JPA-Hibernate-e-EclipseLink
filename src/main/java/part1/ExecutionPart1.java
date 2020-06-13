@@ -15,7 +15,7 @@ public class ExecutionPart1 {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         Estado estadoParaAdicionar = new Estado("Rio de Janeiro", "RJ");
-        Aluno alunoParaAdicionar = new Aluno("Felipe",33,estadoParaAdicionar);
+        Aluno alunoParaAdicionar = new Aluno("Gabriel",01,estadoParaAdicionar);
 
         entityManager.getTransaction().begin();
 
