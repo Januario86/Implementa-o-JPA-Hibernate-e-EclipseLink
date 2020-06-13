@@ -1,4 +1,5 @@
-## Trabalhando com Banco de Dados utilizando JDBC e JPA- Gradle build
+## Implementação JPA(Hibernate e EclipseLink)
+## Trabalhando com Banco de Dados utilizando JDBC 
 ### Exemplo tirado do curso da digital inovation one
 
 > Requisitos Básicos
