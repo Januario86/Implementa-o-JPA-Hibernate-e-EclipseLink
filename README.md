@@ -18,7 +18,7 @@
 CREATE database digital_innovation_one;
 
 
-2 - Criar uma tabela no banco de dados (rodar no prompt do MySQL OU no MySQL workbench)
+2 - Criar uma tabela no banco de dados (rodar no prompt do MySQL OU no MySQL workbench)<br/>
 CREATE TABLE aluno (
     id INTEGER PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(80) NOT NULL,
@@ -26,7 +26,7 @@ CREATE TABLE aluno (
     estado CHARACTER(2) NOT NULL
 );
 
-3 - Adicionar alguns exemplos (rodar no prompt do MySQL OU no MySQL workbench)
+3 - Adicionar alguns exemplos (rodar no prompt do MySQL OU no MySQL workbench)<br/>
 INSERT INTO aluno(nome, idade, estado) VALUES ('Pedro', 20, 'RJ');
 INSERT INTO aluno(nome, idade, estado) VALUES ('Maria', 35, 'AC');
 INSERT INTO aluno(nome, idade, estado) VALUES ('Joao', 10, 'SC');
