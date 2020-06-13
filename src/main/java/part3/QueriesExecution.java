@@ -29,7 +29,7 @@ public class QueriesExecution {
 
         }*/
 
-       /* try {
+        /*try {
 
             String ResultadoCreate= null;
             listaDeAlunos = alunoDAO.list();
@@ -57,7 +57,7 @@ public class QueriesExecution {
 
         }*/
 
-       try{
+       /*try{
 
            listaDeAlunos = alunoDAO.list();
 
@@ -78,8 +78,27 @@ public class QueriesExecution {
            listaDeAlunos.stream().forEach(System.out::println);
 
        }catch (Exception e){
+            System.out.println("Erro ao atualizar Aluno por ID");
+            e.printStackTrace();
+       }*/
 
+
+       try{
+           listaDeAlunos = alunoDAO.list();
+           System.out.print("Antes de deletar aluno ");
+           listaDeAlunos.stream().forEach(System.out::println);
+
+           alunoDAO.delete(8);
+
+           listaDeAlunos = alunoDAO.list();
+           System.out.print("Depois de deletar aluno ");
+           listaDeAlunos.stream().forEach(System.out::println);
+
+       }catch(Exception e){
+           System.out.println("Erro ao deletar Aluno por ID");
+           e.printStackTrace();
        }
+
     }
 }
 
