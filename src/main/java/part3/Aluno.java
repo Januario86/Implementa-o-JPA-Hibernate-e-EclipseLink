@@ -1,10 +1,19 @@
 package part3;
 
+import javax.persistence.*;
+
+@Entity
 public class Aluno {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column
     private String nome;
+    @Column
     private int idade;
+    @Column
     private String estado;
 
     public Aluno(int id,String nome,int idade, String estado){
