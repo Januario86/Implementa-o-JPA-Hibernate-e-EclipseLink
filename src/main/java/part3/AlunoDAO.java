@@ -46,14 +46,26 @@ public class AlunoDAO {
 
         try(Connection conn = ConnectionFactory.getConnection()){
 
-        String sql = "Select * from aluno where id =?";
+            String sql = "Select * from aluno where id =?";
 
-        PreparedStatement  stmt  =  conn.prepareStatement(sql);
+            PreparedStatement  stmt  =  conn.prepareStatement(sql);
+            stmt.setInt(1,id);
 
+            ResultSet rs = stmt.executeQuery();
+
+            if(rs.next()){
+
+                aluno.setId(rs.getInt("id"));
+                aluno.setNome(rs.getString("nome"));
+                aluno.setIdade(rs.getInt("idade"));
+                aluno.setEstado(rs.getString("estado"));
+            }
         }catch(SQLException e){
+            System.out.println("Listagem de Alunos FALHOU!");
             e.printStackTrace();
         }
 
+        return aluno;
 
     }
 
