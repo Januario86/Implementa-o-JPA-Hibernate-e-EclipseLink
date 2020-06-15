@@ -38,11 +38,11 @@ public class ExecutionPart2 {
         entityManager.getTransaction().commit();
 
         // 3 - Resgatar instâncias no banco de dados
-//        Estado estadoEncontrado = entityManager.find(Estado.class, 1);
-//        Aluno alunoEncontrado = entityManager.find(Aluno.class, 1);
-//
-//        System.out.println(estadoEncontrado);
-//        System.out.println(alunoEncontrado);
+        Estado estadoEncontrado = entityManager.find(Estado.class, 1);
+        Aluno alunoEncontrado = entityManager.find(Aluno.class, 1);
+
+         System.out.println(estadoEncontrado);
+         System.out.println(alunoEncontrado);
 
         // 4 - Alterar uma entidade
 //        entityManager.getTransaction().begin();
