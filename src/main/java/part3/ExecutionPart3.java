@@ -6,6 +6,7 @@ import classes.Estado;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.util.List;
 
 public class ExecutionPart3 {
 
@@ -33,36 +34,36 @@ public class ExecutionPart3 {
 
         // =============================================================================================================
 
-        // 2.2 - Utilizando o método find do entityManager
-        // Trazendo somente 1 resultado
-        Aluno alunoEntityManager = entityManager.find(Aluno.class, 1);
-
-        // Trazendo uma lista como resultado
-        // Nao eh possivel!!! Deve utilizar um dos métodos utilizados abaixos nas partes 2.3 - 2.4 - 2.5
-
-        // Resultados das consultas acima
-        System.out.println("Consulta alunoEntityManager: " + alunoEntityManager);
+//        // 2.2 - Utilizando o método find do entityManager
+//        // Trazendo somente 1 resultado
+//        Aluno alunoEntityManager = entityManager.find(Aluno.class, 1);
+//
+//        // Trazendo uma lista como resultado
+//        // Nao eh possivel!!! Deve utilizar um dos métodos utilizados abaixos nas partes 2.3 - 2.4 - 2.5
+//
+//        // Resultados das consultas acima
+//        System.out.println("Consulta alunoEntityManager: " + alunoEntityManager);
 
         // =============================================================================================================
 
         // 2.3 - SQL nativo
 
-//        // Trazendo somente 1 resultado
-//        String sql = "SELECT * FROM Aluno WHERE nome = :nome ";
-//        Aluno alunoSQL = (Aluno) entityManager
-//                .createNativeQuery(sql, Aluno.class)
-//                .setParameter("nome", nome)
-//                .getSingleResult();
-//
-//        // Trazendo uma lista como resultado
-//        String sqlList = "SELECT * FROM Aluno";
-//        List<Aluno> alunoSQLList = entityManager
-//                .createNativeQuery(sqlList, Aluno.class)
-//                .getResultList();
-//
-//        // Resultados das consultas acima
-//        System.out.println("Consulta alunoSQL: " + alunoSQL);
-//        alunoSQLList.forEach(Aluno -> System.out.println("Consulta alunoSQLList: " + Aluno));
+        // Trazendo somente 1 resultado
+        String sql = "SELECT * FROM Aluno WHERE nome = :nome ";
+        Aluno alunoSQL = (Aluno) entityManager
+                .createNativeQuery(sql, Aluno.class)
+                .setParameter("nome", nome)
+                .getSingleResult();
+
+        // Trazendo uma lista como resultado
+        String sqlList = "SELECT * FROM Aluno";
+        List<Aluno> alunoSQLList = entityManager
+                .createNativeQuery(sqlList, Aluno.class)
+                .getResultList();
+
+        // Resultados das consultas acima
+        System.out.println("Consulta alunoSQL: " + alunoSQL);
+        alunoSQLList.forEach(Aluno -> System.out.println("Consulta alunoSQLList: " + Aluno));
 
         // =============================================================================================================
 
