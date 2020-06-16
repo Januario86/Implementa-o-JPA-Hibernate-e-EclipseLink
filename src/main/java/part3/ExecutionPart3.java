@@ -48,44 +48,44 @@ public class ExecutionPart3 {
 
         // 2.3 - SQL nativo
 
-        // Trazendo somente 1 resultado
-        String sql = "SELECT * FROM Aluno WHERE nome = :nome ";
-        Aluno alunoSQL = (Aluno) entityManager
-                .createNativeQuery(sql, Aluno.class)
-                .setParameter("nome", nome)
-                .getSingleResult();
-
-        // Trazendo uma lista como resultado
-        String sqlList = "SELECT * FROM Aluno";
-        List<Aluno> alunoSQLList = entityManager
-                .createNativeQuery(sqlList, Aluno.class)
-                .getResultList();
-
-        // Resultados das consultas acima
-        System.out.println("Consulta alunoSQL: " + alunoSQL);
-        alunoSQLList.forEach(Aluno -> System.out.println("Consulta alunoSQLList: " + Aluno));
+//        // Trazendo somente 1 resultado
+//        String sql = "SELECT * FROM Aluno WHERE nome = :nome ";
+//        Aluno alunoSQL = (Aluno) entityManager
+//                .createNativeQuery(sql, Aluno.class)
+//                .setParameter("nome", nome)
+//                .getSingleResult();
+//
+//        // Trazendo uma lista como resultado
+//        String sqlList = "SELECT * FROM Aluno";
+//        List<Aluno> alunoSQLList = entityManager
+//                .createNativeQuery(sqlList, Aluno.class)
+//                .getResultList();
+//
+//        // Resultados das consultas acima
+//        System.out.println("Consulta alunoSQL: " + alunoSQL);
+//        alunoSQLList.forEach(Aluno -> System.out.println("Consulta alunoSQLList: " + Aluno));
 
         // =============================================================================================================
 
         // 2.4 - JPQL
 
-//        // Trazendo somente 1 resultado
-//        String jpql = "select a from Aluno a where a.nome = :nome";
-//        Aluno alunoJPQL = entityManager
-//                .createQuery(jpql, Aluno.class)
-//                .setParameter("nome", nome)
-//                .getSingleResult();
-//
-//        // Trazendo uma lista como resultado
-//        String jpqlList = "select a from Aluno a where a.estado = :estado";
-//        List<Aluno> alunoJPQLList = entityManager
-//                .createQuery(jpqlList, Aluno.class)
-//                .setParameter("estado", estadoParaAdicionar)
-//                .getResultList();
-//
-//        // Resultados das consultas acima
-//        System.out.println("Consulta alunoJPQL: " + alunoJPQL);
-//        alunoJPQLList.forEach(Aluno -> System.out.println("Consulta alunoJPQLList: " + Aluno));
+        // Trazendo somente 1 resultado
+        String jpql = "select a from Aluno a where a.nome = :nome";
+        Aluno alunoJPQL = entityManager
+                .createQuery(jpql, Aluno.class)
+                .setParameter("nome", nome)
+                .getSingleResult();
+
+        // Trazendo uma lista como resultado
+        String jpqlList = "select a from Aluno a where a.estado = :estado";
+        List<Aluno> alunoJPQLList = entityManager
+                .createQuery(jpqlList, Aluno.class)
+                .setParameter("estado", estadoParaAdicionar)
+                .getResultList();
+
+        // Resultados das consultas acima
+        System.out.println("Consulta alunoJPQL: " + alunoJPQL);
+        alunoJPQLList.forEach(Aluno -> System.out.println("Consulta alunoJPQLList: " + Aluno));
 
         // =============================================================================================================
 
